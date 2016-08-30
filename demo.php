@@ -9,6 +9,8 @@ var_dump($argv);
 
 echo "the filename of the script is $argv[0]".PHP_EOL;
 
+//null coalescing pattern
+
 if (isset($argv[1])){
 	$firstArgument = $argv[1];
 } else {
@@ -16,3 +18,8 @@ if (isset($argv[1])){
 }
 
 echo "The first argument is $firstArgument".PHP_EOL;
+
+
+//or in ternary
+
+$firstArgument = (isset($argv[1])) ? $argv[1]: "not specified";
