@@ -1,35 +1,8 @@
 <?php
 
-$person = [
-	'first_name' => 'Dan',
-	'last_name' => 'Carroll',
-	'email' => 'dcarrll@gmail.com',
-	'phone' => '123-456-7890'
-];
+echo "\$argc is the number of arguments passed to a script".PHP_EOL;
+var_dump($argc);
 
-$test = [
-	'person1' => [
-	'first_name' => 'Dan',
-	'last_name' => 'Carroll',
-	'email' => 'dcarrll@gmail.com',
-	'phone' => '123-456-7890'
-	],
-
-	'person2' => [
-	'first_name' => 'Joe',
-	'last_name' => 'Montana',
-	'email' => 'fortyniner@gmail.com',
-	'phone' => '123-456-7890'
-	],
-
-	'person3' => [
-	'first_name' => 'Dora',
-	'last_name' => 'Explora',
-	'email' => 'lost@gmail.com',
-	'phone' => '123-456-7890'
-	],
-
-
-];
-
-print_r($test);
+echo PHP_EOL;
+echo "\$argv is an arrary of all the arguments".PHP_EOL;
+var_dump($argv);
