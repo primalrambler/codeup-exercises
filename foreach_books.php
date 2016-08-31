@@ -24,10 +24,14 @@ $books = array(
 );
 
 foreach ($books as $title => $infoArray) {
-	$message = $title.PHP_EOL;
-	foreach ($infoArray as $info => $value) {
-		$message .= $info.": ".$value.PHP_EOL;
+	//check if it was published after 1950
+	if ($infoArray['published'] > 1950){
+			$message = $title.PHP_EOL;
+		foreach ($infoArray as $info => $value) {
+			$message .= $info.": ".$value.PHP_EOL;
+		}
 	}
 	$message .= PHP_EOL;
 	echo $message;
 }
+
