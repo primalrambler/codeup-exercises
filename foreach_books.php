@@ -24,5 +24,10 @@ $books = array(
 );
 
 foreach ($books as $title => $infoArray) {
-	echo $title.PHP_EOL;
+	$message = $title.PHP_EOL;
+	foreach ($infoArray as $info => $value) {
+		$message .= $info.": ".$value.PHP_EOL;
+	}
+	$message .= PHP_EOL;
+	echo $message;
 }
