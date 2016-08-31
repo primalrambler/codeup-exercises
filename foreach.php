@@ -5,10 +5,9 @@ $things = array('Sgt. Pepper', "11", null, array(1,2,3), 3.14, "12 + 7", false, 
 
 foreach($things as $thing) {
 	if (is_array($thing)) {
-		foreach ($thing as $subthing) {
-			echo "$subthing".PHP_EOL;
-		}
+		echo implode(", ", $thing);
 	} else {
-		echo "$thing".PHP_EOL;
+		echo "$thing";
 	}
+	echo PHP_EOL;
 }
