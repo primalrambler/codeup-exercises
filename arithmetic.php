@@ -1,7 +1,5 @@
 <?php
 
-$inputArray = [];
-
 function add($a, $b)
 {
     return $a + $b;
@@ -58,7 +56,8 @@ function getAllInput (){
 	return $inputArray;
 }
 
-//runs the numbers through all functions. signIndex is to change between positive and negative
+//runs the numbers through all the math functions. 
+//signIndex is to change between positive and negative
 // 1 -> matches data entry sign
 //-1 -> flips data entry sign
 //assumes data entered purposefully, default to 1
@@ -72,6 +71,7 @@ function testNumbers($numArray, $signIndex0 = 1, $signIndex1 = 1)
 	echo $numArray[0] * $signIndex0." % ".$numArray[1] * $signIndex1." = ".modulus($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;	
 
 }
+
 
 $inputArray = getAllInput();
 testNumbers($inputArray,1,1);
