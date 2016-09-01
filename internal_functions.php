@@ -14,7 +14,7 @@ function inspect($data){
 			$msg = "The value is NULL".PHP_EOL;
 			break;
 		case 'boolean' :
-			$data ? $msg .= "TRUE".PHP_EOL : $msg .= "FALSE".PHP_EOL;
+			$msg .= $data ? "TRUE".PHP_EOL : $msg .= "FALSE".PHP_EOL;
 			break;
 		case 'string' :
 			empty($data) ? $msg = "The string is empty.".PHP_EOL : $msg .= $data.PHP_EOL;
