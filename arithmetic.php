@@ -28,35 +28,34 @@ function modulus($a, $b)
 	return ($b > -1 && $b< 1) ? "cannot mod by zero" : $a % $b;
 }
 
-// Add code to test your functions here
 
-$testNumberArray = [
-	'integer' => [37, 110],
-	'decimal' => [3.4897, 57.8929],
-	'fractional' => [0.8842, 0.004837],
-];
-
-
-function validateInput (){
-	//get first number
+//collects the data
+function getDataInput (){
 	do {
-		fwrite(STDOUT,"Enter the first number: ");
-		$a = trim(fgets(STDIN));
-		if (!is_numeric($a)){
-			echo "That wasn't a number dumb ass.".PHP_EOL;
-		}
-	} while (!is_numeric($a));
+		fwrite(STDOUT,"Enter a number: ");
+		$dataInput = trim(fgets(STDIN));
+		throwErrorMessage($dataInput);
+	} while (!is_numeric($dataInput));
+	return $dataInput;
+}
 
-	//get second number
-	do {
-		fwrite(STDOUT,"Enter the second number: ");
-		$b = trim(fgets(STDIN));
-		if (!is_numeric($b)){
-			echo "That wasn't a number dumb ass.".PHP_EOL;
-		}
-	} while (!is_numeric($b));
-	// print_r([$a, $b]);
-	return [$a, $b];
+//validates data is numeric
+function throwErrorMessage ($dataInput){
+	if (!is_numeric($dataInput)){
+		echo "That wasn't a number dumb ass.".PHP_EOL;
+	}
+}
+
+
+//combinatorial function for data collection
+//returns a 2 numeric element array for use in math functions
+function getAllInput (){
+		$inputArray = [];
+	for ($i=0; $i < 2; $i++) { 
+		$number = getDataInput();
+		array_push($inputArray, $number);
+	}
+	return $inputArray;
 }
 
 //runs the numbers through all functions. signIndex is to change between positive and negative
@@ -74,7 +73,6 @@ function testNumbers($numArray, $signIndex0 = 1, $signIndex1 = 1)
 
 }
 
-$inputArray = validateInput();
-// print_r($inputArray);
+$inputArray = getAllInput();
 testNumbers($inputArray,1,1);
 
