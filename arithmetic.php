@@ -1,5 +1,7 @@
 <?php
 
+$inputArray = [];
+
 function add($a, $b)
 {
     return $a + $b;
@@ -34,20 +36,45 @@ $testNumberArray = [
 	'fractional' => [0.8842, 0.004837],
 ];
 
-function testNumbers($numberArray,$signIndex0, $signIndex1)
-{
-	foreach ($numberArray as $numType => $numArray) {
-		echo "Testing values of type: {$numType}".PHP_EOL;
-		echo $numArray[0] * $signIndex0." + ".$numArray[1] * $signIndex1." = ".add($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;
-		echo $numArray[0] * $signIndex0." - ".$numArray[1] * $signIndex1." = ".subtract($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;
-		echo $numArray[0] * $signIndex0." * ".$numArray[1] * $signIndex1." = ".multiply($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;
-		echo $numArray[0] * $signIndex0." / ".$numArray[1] * $signIndex1." = ".divide($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;	
-		echo $numArray[0] * $signIndex0." % ".$numArray[1] * $signIndex1." = ".modulus($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;	
 
-	}
+function validateInput (){
+	//get first number
+	do {
+		fwrite(STDOUT,"Enter the first number: ");
+		$a = trim(fgets(STDIN));
+		if (!is_numeric($a)){
+			echo "That wasn't a number dumb ass.".PHP_EOL;
+		}
+	} while (!is_numeric($a));
+
+	//get second number
+	do {
+		fwrite(STDOUT,"Enter the second number: ");
+		$b = trim(fgets(STDIN));
+		if (!is_numeric($b)){
+			echo "That wasn't a number dumb ass.".PHP_EOL;
+		}
+	} while (!is_numeric($b));
+	// print_r([$a, $b]);
+	return [$a, $b];
 }
 
-testNumbers($testNumberArray,1,1);
-testNumbers($testNumberArray,-1,-1);
-testNumbers($testNumberArray,-1,1);
-testNumbers($testNumberArray,1,-1);
+//runs the numbers through all functions. signIndex is to change between positive and negative
+// 1 -> matches data entry sign
+//-1 -> flips data entry sign
+//assumes data entered purposefully, default to 1
+
+function testNumbers($numArray, $signIndex0 = 1, $signIndex1 = 1)
+{
+	echo $numArray[0] * $signIndex0." + ".$numArray[1] * $signIndex1." = ".add($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;
+	echo $numArray[0] * $signIndex0." - ".$numArray[1] * $signIndex1." = ".subtract($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;
+	echo $numArray[0] * $signIndex0." * ".$numArray[1] * $signIndex1." = ".multiply($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;
+	echo $numArray[0] * $signIndex0." / ".$numArray[1] * $signIndex1." = ".divide($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;	
+	echo $numArray[0] * $signIndex0." % ".$numArray[1] * $signIndex1." = ".modulus($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;	
+
+}
+
+$inputArray = validateInput();
+// print_r($inputArray);
+testNumbers($inputArray,1,1);
+
