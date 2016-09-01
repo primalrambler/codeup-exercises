@@ -21,6 +21,11 @@ function divide($a, $b)
 
 }
 
+function modulus($a, $b)
+{
+	return ($b > -1 && $b< 1) ? "cannot mod by zero" : $a % $b;
+}
+
 // Add code to test your functions here
 
 $testNumberArray = [
@@ -37,6 +42,8 @@ function testNumbers($numberArray,$signIndex0, $signIndex1)
 		echo $numArray[0] * $signIndex0." - ".$numArray[1] * $signIndex1." = ".subtract($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;
 		echo $numArray[0] * $signIndex0." * ".$numArray[1] * $signIndex1." = ".multiply($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;
 		echo $numArray[0] * $signIndex0." / ".$numArray[1] * $signIndex1." = ".divide($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;	
+		echo $numArray[0] * $signIndex0." % ".$numArray[1] * $signIndex1." = ".modulus($numArray[0] * $signIndex0,$numArray[1] * $signIndex1).PHP_EOL;	
+
 	}
 }
 
