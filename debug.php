@@ -32,7 +32,7 @@ $orders = [
         'toppings' => ['pineapple', 'ham'],
         'crust'    => 'regular',
         'delivery' => true,
-        'special_instructions' => 'extra crispy crust',
+        'special instructions' => 'extra crispy crust',
         'price'    => 995
     ]
 ];
@@ -65,8 +65,8 @@ foreach ($orders as $index => $order) {
     echo "Crust: {$order['crust']}" . PHP_EOL;
 
     // if the order has special instructions display them
-    if (isset($order['special_instructions'])) {
-        echo "Special Prep: {$order['special_instructions']}" . PHP_EOL;
+    if (isset($order['special instructions'])) {
+        echo "Special Prep: {$order['special instructions']}" . PHP_EOL;
     }
     
     echo "Total: $formattedPrice" . PHP_EOL;
