@@ -33,12 +33,14 @@ function humanizedFirstNameList ($nameString,$sortAlpha = false)
 	//convert nameString to array to manipulate
 	$nameArray = explode(', ', $nameString);
 
-	foreach ($nameArray as $key => $wholeName) {
-		$tempArray = explode(' ',$wholeName);
+	//go through each entry, convert name string to array
+	//reassign the first name in the full name's place
+	foreach ($nameArray as $key => $fullName) {
+		$tempArray = explode(' ',$fullName);
 		$nameArray[$key] = $tempArray[0];
 	}
 
-	
+	//alphabetical sorting if $sortAlpha true
 	if ($sortAlpha){
 		sort($nameArray);
 	}
