@@ -46,30 +46,30 @@ $companies = [
 ];
 
 
-// //--------------------------------------------
-// //create working array
-// $sortByCompany = $companies;
+//--------------------------------------------
+//create working array
+$sortByCompany = $companies;
 
-// //sort by company name
-// ksort($sortByCompany);
-// var_dump($sortByCompany);
+//sort by company name
+ksort($sortByCompany);
+print_r($sortByCompany);
 
 //--------------------------------------------
 //sort staff alphabetically then output
 
 //get companies in alphabetical order
-// ksort($companies);
+ksort($companies);
 
-// // sort employess alphabetically
+// sort 2nd level array - employess alphabetically
 
-// foreach ($companies as $company => $employees) {
-//     sort($employees);
-//     $companies[$company] = $employees;
-// }
+foreach ($companies as $company => $employees) {
+    sort($employees);
+    $companies[$company] = $employees;
+}
 
-// print_r($companies);
+print_r($companies);
 
-
+//--------------------------------------------
 //sort from biggest to smallest company list
 arsort($companies);
 print_r($companies);
