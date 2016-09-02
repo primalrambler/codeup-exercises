@@ -45,12 +45,24 @@ $companies = [
     ]
 ];
 
-//dumps array as is...
-// var_dump($companies);
 
-$sortByCompany = $companies;
+// //--------------------------------------------
+// //create working array
+// $sortByCompany = $companies;
 
-//sort by company name
+// //sort by company name
+// ksort($sortByCompany);
+// var_dump($sortByCompany);
 
-ksort($sortByCompany);
-var_dump($sortByCompany);
+//--------------------------------------------
+//sort staff alphabetically then output
+
+//get companies in alphabetical order
+ksort($companies);
+
+foreach ($companies as $company => $employees) {
+    sort($employees);
+    $companies[$company] = $employees;
+}
+
+print_r($companies);
