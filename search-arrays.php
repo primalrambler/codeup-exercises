@@ -22,10 +22,10 @@ function compareThem($firstArray, $secondArray) {
 			$similarElements +=1;
 		}
 	}
-	return "There are ".$similarElements." similar elements".PHP_EOL;
+	return $similarElements;
 }
 
 
-echo compareThem($names, $compare);
+echo "There are ".compareThem($names, $compare)." similar elements".PHP_EOL;;
 
 
