@@ -58,11 +58,21 @@ $companies = [
 //sort staff alphabetically then output
 
 //get companies in alphabetical order
-ksort($companies);
+// ksort($companies);
 
-foreach ($companies as $company => $employees) {
-    sort($employees);
-    $companies[$company] = $employees;
-}
+// // sort employess alphabetically
 
+// foreach ($companies as $company => $employees) {
+//     sort($employees);
+//     $companies[$company] = $employees;
+// }
+
+// print_r($companies);
+
+
+//sort from biggest to smallest company list
+arsort($companies);
 print_r($companies);
+
+
+
