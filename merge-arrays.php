@@ -32,7 +32,6 @@ function combine_arrays($smallerArray, $biggerArray)
 	return $resultant;
 }
 
-
 print_r(combine_arrays($names,$compare));
 
 
