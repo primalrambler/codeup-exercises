@@ -8,6 +8,7 @@ $msg = "Some of the most famous fictional theoretical physicists are ";
 
 //convert string to array to manipulate
 $physicistsArray = explode(', ', $physicistsString);
+sort($physicistsArray);
 
 //add the 'and' to the last element
 $physicistsArray[count($physicistsArray)-1] = "and ".$physicistsArray[count($physicistsArray)-1];
