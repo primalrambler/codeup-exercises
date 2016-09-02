@@ -32,6 +32,12 @@ function humanizedFirstNameList ($nameString,$sortAlpha = false)
 {
 	//convert nameString to array to manipulate
 	$nameArray = explode(', ', $nameString);
+
+	foreach ($nameArray as $key => $wholeName) {
+		$tempArray = explode(' ',$wholeName);
+		$nameArray[$key] = $tempArray[0];
+	}
+
 	
 	if ($sortAlpha){
 		sort($nameArray);
@@ -54,5 +60,6 @@ function humanizedFirstNameList ($nameString,$sortAlpha = false)
 
 
 echo $msg.humanizedList($physicistsString,true).PHP_EOL;
+echo $msg.humanizedFirstNameList($physicistsString,true).PHP_EOL;
 
 
