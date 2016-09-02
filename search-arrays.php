@@ -2,7 +2,7 @@
 
 $names = ['Tina', 'Dana', 'Mike', 'Amy', 'Adam'];
 
-$compare = ['Tina', 'Dean', 'Mel', 'Amy', 'Michael'];
+$compare = ['Tina', 'Dean', 'Mel', 'Amy', 'Michael','Dana'];
 
 function trawler($array, $query)
 {
@@ -13,12 +13,12 @@ function trawler($array, $query)
 
 
 
-function compareThem($biggerArray, $smallerArray) {
+function compareThem($firstArray, $secondArray) {
 	$similarElements = 0;
 
-	foreach ($biggerArray as $key => $value) 
+	foreach ($firstArray as $key => $value) 
 	{
-		if (trawler($smallerArray,$value)){
+		if (trawler($secondArray,$value)){
 			$similarElements +=1;
 		}
 	}
@@ -26,6 +26,6 @@ function compareThem($biggerArray, $smallerArray) {
 }
 
 
-echo (count($names) > count($compare)) ? compareThem($names, $compare) : compareThem($compare, $names); 
+echo compareThem($names, $compare);
 
 
