@@ -5,20 +5,54 @@ $physicistsString = 'Gordon Freeman, Samantha Carter, Sheldon Cooper, Quinn Mall
 //standard message text
 $msg = "Some of the most famous fictional theoretical physicists are ";
 
+//parameters - 
+//$string - string of comma separated names
+//$sortAlpha - boolean, true to sort alphabetically, false to leave as is
+//returns  - string, list of names
 
-//convert string to array to manipulate
-$physicistsArray = explode(', ', $physicistsString);
-sort($physicistsArray);
+function humanizedList ($nameString,$sortAlpha = false)
+{
+	//convert nameString to array to manipulate
+	$nameArray = explode(', ', $nameString);
+	
+	if ($sortAlpha){
+		sort($nameArray);
+	}
 
-//add the 'and' to the last element
-$physicistsArray[count($physicistsArray)-1] = "and ".$physicistsArray[count($physicistsArray)-1];
+	//add the 'and' to the last element
+	$nameArray[count($nameArray)-1] = "and ".$nameArray[count($nameArray)-1];
+
+	//convert back to a nameString
+	$nameString = implode(', ', $nameArray);
+
+	return $nameString;
+}
+
+function humanizedFirstNameList ($nameString,$sortAlpha = false)
+{
+	//convert nameString to array to manipulate
+	$nameArray = explode(', ', $nameString);
+	
+	if ($sortAlpha){
+		sort($nameArray);
+	}
+
+	//add the 'and' to the last element
+	$nameArray[count($nameArray)-1] = "and ".$nameArray[count($nameArray)-1];
+
+	//convert back to a nameString
+	$nameString = implode(', ', $nameArray);
+
+	return $nameString;
+}
+
+
+
 
 //debug
-// print_r($physicistsArray);
+// print_r($nameArray);
 
-//convert back to a string
-$physicistsString = implode(', ', $physicistsArray);
 
-echo $msg.$physicistsString.PHP_EOL;
+echo $msg.humanizedList($physicistsString,true).PHP_EOL;
 
 
