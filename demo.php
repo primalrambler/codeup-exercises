@@ -1,25 +1,26 @@
 <?php
 
-echo "\$argc is the number of arguments passed to a script".PHP_EOL;
-var_dump($argc);
+//get the cohort's name file to run the demo randomizer
 
-echo PHP_EOL;
-echo "\$argv is an arrary of all the arguments".PHP_EOL;
-var_dump($argv);
 
-echo "the filename of the script is $argv[0]".PHP_EOL;
-
-//null coalescing pattern
-
-if (isset($argv[1])){
-	$firstArgument = $argv[1];
-} else {
-	$firstArgument = "no value specified";
+if (! isset($argv[1])){
+	echo 'give me filename!'.PHP_EOL;
+	die;
 }
 
-echo "The first argument is $firstArgument".PHP_EOL;
+cohort = $argv[1];
 
+function getFileContents($filename)
+{
+	$handle = fopen($filename, 'r');
 
-//or in ternary
+	$fileContents = $fread($handle, filesize($filename));
 
-$firstArgument = (isset($argv[1])) ? $argv[1]: "not specified";
+	fclose($handle);
+
+	return $fileContents;
+}
+
+$names = (getFileContents($cohort));
+
+$names = explode("\n", $names);
