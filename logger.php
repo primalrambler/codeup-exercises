@@ -7,6 +7,7 @@ function logMessage($level, $message)
     $filename = 'log-'.$datestamp.'.log';
 	$handle = fopen($filename, 'a');
 	fwrite($handle, PHP_EOL .$datestamp." ".$timestamp." ".$level." ".$message);
+	fclose($handle);
 }
 
 function logError($message)
