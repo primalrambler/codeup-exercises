@@ -1,21 +1,12 @@
 <?php
 
-function getDateStamp ()
-{
-	return $datestamp = date('Y-m-d');	
-}
-
-function getTimeStamp()
-{
-	return $timestamp = date('H:i:s');
-}
-
-
 function logMessage($level, $message)
 {
-    $filename = 'log-'.getDateStamp().'.log';
+	$timestamp = date('H:i:s');
+	$datestamp = date('Y-m-d');
+    $filename = 'log-'.$datestamp.'.log';
 	$handle = fopen($filename, 'a');
-	fwrite($handle, PHP_EOL .getDateStamp()." ".getTimeStamp()." ".$level." ".$message);
+	fwrite($handle, PHP_EOL .$datestamp." ".$timestamp." ".$level." ".$message);
 }
 
 function logError($message)
