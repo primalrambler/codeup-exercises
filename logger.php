@@ -14,7 +14,7 @@ function getTimeStamp()
 function logMessage($logLevel, $message)
 {
     $filename = 'test.log';
-	$handle = fopen($filename, 'a');
+	$handle = fopen('log-'.getDateStamp().'.log', 'a');
 	fwrite($handle, PHP_EOL .getDateStamp()." ".getTimeStamp()." ". $logLevel." ".$message);
 }
 
