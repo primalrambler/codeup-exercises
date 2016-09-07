@@ -37,17 +37,8 @@ function parseContacts($fileContents)
     	$contact['number'] = phoneNumberFormat($temp[1]);
     	$contacts[$key] = $contact;
     }
-
-
-    var_dump($contacts);
-
-    // todo - read file and parse contacts
-
-    // return $contacts;
+    return $contacts;
 }
 
 $fileContents = getFileContents($filename);
-parseContacts($fileContents);
-
-// var_dump(parseContacts('contacts.txt'));
-// 
+print_r (parseContacts($fileContents));
