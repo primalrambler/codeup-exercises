@@ -11,18 +11,21 @@ function getTimeStamp()
 }
 
 
-function logInfo($message)
+function logMessage($level, $message)
 {
     $filename = 'log-'.getDateStamp().'.log';
 	$handle = fopen($filename, 'a');
-	fwrite($handle, PHP_EOL .getDateStamp()." ".getTimeStamp()." INFO ".$message);
+	fwrite($handle, PHP_EOL .getDateStamp()." ".getTimeStamp()." ".$level." ".$message);
 }
 
 function logError($message)
 {
-    $filename = 'log-'.getDateStamp().'.log';
-	$handle = fopen($filename, 'a');
-	fwrite($handle, PHP_EOL .getDateStamp()." ".getTimeStamp()." ERROR ".$message);
+    logMessage('ERROR',$message);
+}
+
+function logInfo($message)
+{
+    logMessage('INFO',$message);
 }
 
 logInfo("This is an info message.");
