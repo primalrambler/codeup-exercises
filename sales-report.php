@@ -87,23 +87,27 @@ function reportSalesData ($salesReportArray)
 
 
 $msg = <<<SALES_REPORT
----------------------------------------------------
+--------------------------------------------------------
 SUMMARY SALES INFORMATION
----------------------------------------------------
+--------------------------------------------------------
 Total Number of Employees:		$numberOfEmployees
 Total Number of Units Sold:		$totalSales
 Avg. Number of Units Sold:		$averageSalesUnits
 
----------------------------------------------------
-Units 	|	Employee 			| ID
----------------------------------------------------
+--------------------------------------------------------
+Units 	|	Employee 			|   ID
+--------------------------------------------------------
 
 SALES_REPORT;
 	
 	echo $msg;
 
 	foreach ($salesReportArray as $key => $value) {
-		printf("%d 	%s %s 			%d\n", $value['sales units'],$value['first name'],$value['last name'],$value['employee number']);
+		$unitsString = str_pad($value['sales units'],10);
+		$nameString = str_pad($value['first name']." ".$value['last name'],40);
+		$employeeString = str_pad($value['employee number'], 5," ", STR_PAD_LEFT);
+		// printf("%d 	%s %s 			%d\n", $value['sales units'],$value['first name'],$value['last name'],$value['employee number']);
+		echo $unitsString.$nameString.$employeeString.PHP_EOL;
 	}
 }
 
