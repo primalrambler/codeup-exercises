@@ -11,13 +11,13 @@ class Log
 	{
 		$this->datestamp = date('Y-m-d');
 		$this->timestamp = date('H:i:s');
-		$this->filename = $prefix."-".$this->datestamp.".log";
+		$this->filename = "$prefix-{$this->datestamp}.log";
 		$this->handle = fopen($this->filename, 'a');
 	}
 
 	public function logMessage($level, $message)
 	{
-		fwrite($this->handle, PHP_EOL .$this->datestamp." ".$this->timestamp." ".$level." ".$message);
+		fwrite($this->handle, PHP_EOL ."{$this->datestamp} {$this->timestamp} $level $message");
 	}
 
 	public function logError($message)
